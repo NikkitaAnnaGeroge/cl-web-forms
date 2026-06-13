@@ -22,7 +22,7 @@
         <input type="password" id="password" placeholder="Enter password" required minlength="6">
 
         <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" placeholder="Enter phone number" required>
+        <input type="tel" id="phone" placeholder="Enter 10-digit phone number" required>
 
         <label for="dob">Date of Birth</label>
         <input type="date" id="dob" required>
@@ -55,6 +55,20 @@
         <button type="submit">Submit</button>
     </form>
 </div>
+
+<script>
+document.querySelector("form").addEventListener("submit", function(event) {
+    let phone = document.getElementById("phone").value;
+
+    if (!/^\d{10}$/.test(phone)) {
+        alert("Phone number must contain exactly 10 digits.");
+        event.preventDefault();
+        return;
+    }
+
+    alert("Form submitted successfully!");
+});
+</script>
 
 </body>
 </html>
